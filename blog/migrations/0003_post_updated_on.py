@@ -17,6 +17,6 @@ class Migration(migrations.Migration):
         ),
     ]
 
-
+    #You create a migration on the class and then push it to the database
     #Type python3 manage.py migrate at the terminal to apply the migrations to the database.
     #python3 manage.py makemigrations' to make new migrations

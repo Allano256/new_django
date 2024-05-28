@@ -92,6 +92,9 @@ DATABASES = {
 
 #Note: This is a list of the trusted origins for requests. As shown, you need to add both your local development server URL domain and your production 
 # server URL domain to allow you to add blog post content from the admin dashboard. The subdomain is wildcarded with a *.
+#CSRF stands for Cross-Site Request Forgery.
+#CSRF_TRUSTED_ORIGINS setting ensures that the only requests allowed are ones originating from hosts in the list. 
+# That's why Django blocks access to the admin site if you don't have the correct host setting in there.
 CSRF_TRUSTED_ORIGINS = [
     "https://*.gitpod.io",
     "https://*.codeanyapp.com",
