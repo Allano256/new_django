@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = OS.ENVIRON.GET("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -89,6 +89,14 @@ DATABASES = {
     'default': 
     dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+#Note: This is a list of the trusted origins for requests. As shown, you need to add both your local development server URL domain and your production 
+# server URL domain to allow you to add blog post content from the admin dashboard. The subdomain is wildcarded with a *.
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.gitpod.io",
+    "https://*.codeanyapp.com",
+    "https://*.herokuapp.com"
+]
 
 
 # Password validation
