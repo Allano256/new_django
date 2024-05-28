@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Post #,comment
+from .models import Post,Comment
+
 #he dot in front of models on line 2 indicates that we are importing Post from a file named models, which is in the same directory as our admin.py file.
 #  If you have multiple models that you want to import, then you can separate them with a comma
 
@@ -13,4 +14,6 @@ from .models import Post #,comment
 #When we create a custom model and we want it to appear in the admin site, then we need to tell Django by registering it in the admin.py file. That is what admin.site.register does.
 #It is worth noting that the admin.site.register method takes only one argument. If you are registering multiple models, you would need a separate line for each model
 admin.site.register(Post)
+admin.site.register(Comment)
+
 #admin.site.register(Comment)
