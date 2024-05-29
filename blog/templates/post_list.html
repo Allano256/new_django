@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Views Part 1</title>
+</head>
+
+<body>
+    <h1>Posts list</h1>
+    {% for post in object_list %}
+    <h2>{{post.title}}</h2>
+    <p>{{post.excerpt}}</p>
+    <p>Author: {{post.author}}</p>
+    {% endfor %}
+</body>
+
+</html>
+
+<!-- 
+    The advantage to using class-based generic views is that they are very terse, 
+    i.e. you do not need to add the HTML template name or list which posts you want to see. Let’s add these optional lines of code in the PostView class,
+     ready for you to modify in the next topic.
+-->

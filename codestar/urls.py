@@ -16,9 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from blog import views as index_views
+#from blog import views as index_views ...We delete this after creating a url.py file in 
+#the blog folder because now the blog has its own url file
+
+#Ensure that include is imported from django.urls by appending it after path.
 
 urlpatterns = [
-    path('blog/', index_views.index, name= 'index'),
+    #path('blog/', index_views.index, name= 'index'), We also replace this after creating a url.py file in 
+#the blog folder, Also, replace the existing blog/ urlpattern with a new empty string urlpattern.
+    #This pattern tells Django to look in the blog app URL file for any blog urlpatterns.
+
+    path("", include("blog.urls"), name='blog-urls'), #This is what we work with after working on models and creating views
     path('admin/', admin.site.urls),
 ]
+
+
+#Next, we need to create a templates directory in the blog app, with another directory nested within, 
+# named blog. Django expects this file structure. To create the directory structure, 
+# use the following command in the terminal:
+
+#mkdir -p blog/templates/blog

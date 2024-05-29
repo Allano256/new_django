@@ -20,6 +20,26 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True) #The auto_now argument for the updated_on field sets the value to the current date and time whenever the record is saved,
     #not just when it is created.
 
+    class Meta:
+        ordering = ["-created_on"]
+    #The - prefix on created_on indicates the posts are displayed in descending order of creation date. 
+    # If no leading - is used,
+    #  then the order is ascending, and if a ?
+    #  prefix is used, then the order is randomised.
+    #The Meta class provides additional information or metadata about the model. 
+    # One of its options is ordering, 
+    # which specifies how the records associated with the model are ordered.
+    #n this case, we've assigned the ordering option a list with a single item,
+    #  the created_on field. You can list more than one field to order on; e.g.
+    #  the following would order by created_on descending and then by author ascending.
+        """
+        Note: Methods should always be below Meta classes.
+        """
+    def __str__(self):
+        return f"{self.title}  written by {self.author} "
+       
+            
+
 
 class Comment(models.Model):
     post =  models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")#If a blog post is deleted the comments 
@@ -29,6 +49,19 @@ class Comment(models.Model):
     body = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add = True)
+   
+
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Comment {self.body}  by {self.author} "
+
+    #Well done! The primary purpose of the __str__ method is to provide a human-readable
+    #  representation of the Model instance.
+
+    #Fantastic! Model methods are useful for customising data retrieval and manipulation operations,
+    #  allowing you to add custom behaviour to your Model.
    
 
 
