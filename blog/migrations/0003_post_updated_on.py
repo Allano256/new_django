@@ -21,3 +21,4 @@ class Migration(migrations.Migration):
     #Type python3 manage.py migrate at the terminal to apply the migrations to the database.
     #python3 manage.py makemigrations' to make new migrations
     #python3 manage.py migrate blog zero.... while debugging to reset or reverse migrations
+    #pip3 freeze --local > requirements.txt
