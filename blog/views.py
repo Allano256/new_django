@@ -13,8 +13,9 @@ from .models import Post
 # In the blog/views.py file, create a class-based view named PostList that inherits from the generic.
 # ListView class to display all your posts.
 class PostList(generic.ListView):
-    queryset = Post.objects.all()
+    #queryset = Post.objects.all() will return everything
+    queryset = Post.objects.filter(status=1)
     template_name = "post_list.html"
-    
+
    # model = Post...We can remove the model = Post as it is made redundant by the queryset 
    # explicitly stating all posts are displayed.
