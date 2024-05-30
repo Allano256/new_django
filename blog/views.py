@@ -15,7 +15,9 @@ from .models import Post
 class PostList(generic.ListView):
     #queryset = Post.objects.all() will return everything
     queryset = Post.objects.filter(status=1)
-    template_name = "post_list.html"
+    #template_name = "post_list.html"
+    template_name = "blog/index.html"
+    paginate_by = 6
 
    # model = Post...We can remove the model = Post as it is made redundant by the queryset 
    # explicitly stating all posts are displayed.
