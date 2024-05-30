@@ -83,17 +83,3 @@
 
 </html>
 
-<!--1. There are 2 types of notation:
-The double brace notation {{ }} indicates a variable. When the template engine encounters a variable, it evaluates that variable and replaces it with the result. 
-For example, {{ post.author }} will be replaced by the value of the author attribute 
-from the post object
-  2. The brace and percentage sign notation, {% %}, is what we call a tag. 
-  Tags are more complex than variables. Some of them, like the block tag, allow for text or HTML to be inserted. Others, like the for loop, 
-  control flow by performing loops or logical operations.
- 3.A for loop needs something to iterate over. In this case, the post_list object. 
- This object is passed into the template by the generic ListView,
-  and contains the contents of the queryset that we defined earlier.
- 4.This if statement checks to see how many times our for loop has run. If the counter is divisible by three, then it inserts another closing div tag and a new div with the class of row.
-  This is so that we have a maximum of three posts per row on the homepage. If you change that number to 2 and refresh your project, you will see that you have three rows of two posts instead of two rows of three. 
- This is a handy trick to remember when formatting your own list pages. Make sure you put the number back to 3 and 
- save your index.html file before moving on.-->
