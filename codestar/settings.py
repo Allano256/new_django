@@ -49,9 +49,17 @@ INSTALLED_APPS = [
    
 ]
 
+#Well, middleware also sits between the request and the response,
+#  a bit like a specialised kind of view.
+#Middleware can modify a request prior to it hitting the view code and then modify the response after the view has created it.
+#Similarly, the request, response and view are the most important things,
+#  but the middleware adds additional functionality. In the case of Whitenoise, 
+# it modifies the response to load the static files from the staticfiles directory and serve them when a user visits our site.
+#Note: Middleware often needs to be loaded in a particular order.
+#  The documentation for a piece of middleware will tell you where it needs to be in the MIDDLEWARE list in settings.py.
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #pOSITION IN MIDLEWARE JUST AFTER SECURITY
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
