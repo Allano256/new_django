@@ -14,8 +14,12 @@ from .models import Post
 # ListView class to display all your posts.
 class PostList(generic.ListView):
     #queryset = Post.objects.all() will return everything
-    queryset = Post.objects.filter(status=1)
+
+    queryset = Post.objects.filter(status=1) #he queryset applies a filter on the
+    #database to get only posts with a status of 1, which,
+    #from the STATUS constant in models.py, we know is mapped to "Published".
     #template_name = "post_list.html"
+
     template_name = "blog/index.html"
     paginate_by = 6
 
@@ -24,6 +28,8 @@ class PostList(generic.ListView):
 
 def post_detail(request, slug):
     """
+    The slug parameter gets the argument value from the URL pattern named post_detail.
+
     Display an individual :model:`blog.Post`.
 
     **Context**
@@ -43,4 +49,5 @@ def post_detail(request, slug):
         request,
         "blog/post_detail.html",
         {"post": post},
+        
     )
