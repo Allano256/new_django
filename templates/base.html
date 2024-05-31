@@ -80,6 +80,11 @@
     <main class="flex-shrink-0 main-bg">
         <!--All the block and endblock tags do is tell Django's templating engine 
             that a child template may fill them with content.-->
+            {% if user.is_authenticated %}
+            <p class="text-end m-3">You are logged in as {{ user }}</p>
+            {% else %}
+            <p class="text-end m-3">You are not logged in</p>
+            {% endif %}
 
         {% block content %}
         <!-- Content Goes here -->
