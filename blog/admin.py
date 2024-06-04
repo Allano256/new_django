@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post,Comment
+from .models import Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -9,14 +9,14 @@ from django_summernote.admin import SummernoteModelAdmin
 # When we use a class, we register it with a decorator that is more Pythonic and allows us
 #  to customise how the models we are registering will appear on the admin site.
 
-# @admin.register(Post)
-# class PostAdmin(SummernoteModelAdmin):
+@admin.register(Post)
+class PostAdmin(SummernoteModelAdmin):
 
-#     list_display = ('title', 'slug', 'status')
-#     search_fields = ['title',]
-#     list_filter = ('status',)
-#     prepopulated_fields = {'slug': ('title',)}
-#     summernote_fields = ('content',)
+    list_display = ('title', 'slug', 'status')
+    search_fields = ['title',]
+    list_filter = ('status',)
+    prepopulated_fields = {'slug': ('title',)}
+    summernote_fields = ('content',)
 
 #he dot in front of models on line 2 indicates that we are importing Post from a file named models, which is in the same directory as our admin.py file.
 #  If you have multiple models that you want to import, then you can separate them with a comma
@@ -33,7 +33,7 @@ from django_summernote.admin import SummernoteModelAdmin
 #It is worth noting that the admin.site.register method takes only one argument. If you are registering multiple models,
 #  you would need a separate line for each model
 
-admin.site.register(Post)  #This is deleted after registering the Post with a decorator
+#admin.site.register(Post)  #This is deleted after registering the Post with a decorator
 admin.site.register(Comment)
 
 #admin.site.register(Comment)
